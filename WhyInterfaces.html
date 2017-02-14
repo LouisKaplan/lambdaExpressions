@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Why Interfaces?</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen" />
+
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header">
+        <div class="inner container_12 clearfix">
+            <div id="logo" class="grid_5">
+                <h1><a href="index.html" title="Website Name">Why<span class="black">Interfaces?</span></a></h1>
+                <p id="slogan">Giving our Lambda variables a type</p>
+            </div><!-- end logo -->
+
+
+        </div><!-- end header inner -->
+    </div><!-- end header -->
+
+    <div id="nav" class="container_12 clearfix">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ShorteningExpressions.html">Shortening Expressions</a></li>
+            <li><a href="WhyInterfaces.html">Why Interfaces?</a></li>
+            <li><a href="Example-Java7.html">Example - Java7</a></li>
+            <li><a href="Example_Lambda.html">Example - Lambda</a></li>
+        </ul>
+    </div><!-- end nav -->
+
+    <div id="content">
+        <div class="inner container_12 clearfix">
+            <div id="main" class="grid_8">
+                <h2>Though it might not make sense at first, giving our expression variables the type <i>interface</i> solves a lot problems.</h2>
+                <p><strong>One major issue that comes with adding new features is compatibility. If a new variable type is introduced,
+                code has to be rewritten so that the new type can be used in already-established places. By simply re-using an existing type,
+                a lot of work was saved.</strong></p>
+
+                <br>
+                <p>Remember this example?</p>
+                <p><strong>doubleNumberFunction = (int a) -> a *2;</strong></p>
+
+                <br>
+                <p>Without a variable type, it's pretty useless. However, that variable doesn't represent the int that it will eventually return,
+                    it represents the <i>process</i>.</p>
+
+                <p><strong>OneNumber doubleNumberFunction = (int a) -> a *2;</strong></p>
+                <p>Now it's a OneNumber. What is OneNumber? An interface:</p>
+
+                <br>
+                <p><strong>interface OneNumber{<br>
+                int modifyOneNumber(int x);<br>
+                }</strong></p>
+
+                <p>OneNumber is a <i>Functional</i> Interface, which essentially means it has exactly one abstract method.
+                It can contain other methods, in theory, but exactly one must be abstract.</p>
+
+                <p>Our Lambda Expression matches up with that interface, and when we want to pass the interface as a parameter,
+                    we can do so by passing it as the type Interface.</p>
+
+                <p>Once an interface is in place, we can write any number of accompanying Lambda Expressions to go with it.
+                All that matters is that they have the same parameters and return types.</p>
+
+                <p>Worth noting that the interface must continuously be compatible with all Lambda Functions that implement it.
+                To this end, we have the option tag it with <i>@FunctionalInterface</i>. With this tag in place, your IDE will show errors
+                when incompatibility occurs.</p>
+
+                <p><strong>@FunctionalInterface<br>
+                    interface OneNumber{<br>
+                    int modifyOneNumber(int x);<br>
+                    }</strong></p>
+
+
+
+            </div><!-- end main -->
+            <div id="sidebar" class="grid_4">
+                <div class="inner">
+                    <img src="images/lambda.jpg" alt="image" class="imgborder" />
+                </div><!-- end sidebar inner -->
+            </div><!-- end sidebar -->
+        </div><!-- end content inner -->
+    </div><!-- end content -->
+
+    <div id="footer">
+        <div class="inner container_12 clearfix">
+
+            <p>Copyright  2012. <!-- Please Do not remove -->Template by <a href="http://www.electrictowelrail.org.uk/chrome-towel-radiator/" target="_blank">Chrome Towel Radiator</a><!-- end --><br />
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a></p>
+
+        </div><!-- end footer inner -->
+    </div><!-- end footer -->
+
+</div><!-- end wrapper -->
+</body>
+</html>
